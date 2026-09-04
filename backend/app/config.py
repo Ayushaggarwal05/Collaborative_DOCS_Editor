@@ -1,12 +1,20 @@
+import os
 from typing import List, Union
 from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
+def get_default_db_url() -> str:
+    # Vercel Serverless filesystem is read-only except for /tmp
+    if os.environ.get("VERCEL") or os.environ.get("AWS_LAMBDA_FUNCTION_NAME"):
+        return "sqlite:////tmp/ajaia_docs.db"
+    return "sqlite:///./ajaia_docs.db"
+
+
 class Settings(BaseSettings):
     PROJECT_NAME: str = "Ajaia Docs"
     API_V1_STR: str = "/api"
-    DATABASE_URL: str = "sqlite:///./ajaia_docs.db"
+    DATABASE_URL: str = get_default_db_url()
     CORS_ORIGINS: Union[List[str], str] = [
         "http://localhost:3000",
         "http://localhost:5173",

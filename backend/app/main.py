@@ -18,20 +18,26 @@ logging.basicConfig(
 logger = logging.getLogger("ajaia_docs")
 
 
+def init_db():
+    try:
+        Base.metadata.create_all(bind=engine)
+        db = SessionLocal()
+        try:
+            seed_demo_users(db)
+        finally:
+            db.close()
+    except Exception as e:
+        logger.warning("Database auto-init notice: %s", e)
+
+# Auto-initialize tables and seed data immediately (needed for serverless cold-starts)
+init_db()
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Lifespan context manager for database table creation and initial seeding."""
     logger.info("Initializing database schema...")
-    Base.metadata.create_all(bind=engine)
-
-    logger.info("Seeding initial demo users...")
-    db = SessionLocal()
-    try:
-        users = seed_demo_users(db)
-        logger.info("Database initialized with %d demo users", len(users))
-    finally:
-        db.close()
-
+    init_db()
     yield
     logger.info("Application shutting down...")
 
