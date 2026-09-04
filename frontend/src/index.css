@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-100 text-slate-800 font-sans;
+  }
+}
+
+/* Tiptap Document Canvas Styles */
+.ProseMirror {
+  @apply outline-none min-h-[500px] text-slate-800 leading-relaxed text-base;
+}
+
+.ProseMirror p {
+  @apply my-3;
+}
+
+.ProseMirror h1 {
+  @apply text-3xl font-bold text-slate-900 mt-6 mb-3 tracking-tight;
+}
+
+.ProseMirror h2 {
+  @apply text-2xl font-semibold text-slate-900 mt-5 mb-2.5 tracking-tight;
+}
+
+.ProseMirror h3 {
+  @apply text-xl font-medium text-slate-800 mt-4 mb-2;
+}
+
+.ProseMirror ul {
+  @apply list-disc list-inside my-3 space-y-1 pl-2;
+}
+
+.ProseMirror ol {
+  @apply list-decimal list-inside my-3 space-y-1 pl-2;
+}
+
+.ProseMirror li {
+  @apply text-slate-800;
+}
+
+.ProseMirror blockquote {
+  @apply border-l-4 border-blue-500 pl-4 py-1 my-3 text-slate-600 italic bg-blue-50/50 rounded-r;
+}
+
+.ProseMirror code {
+  @apply bg-slate-100 text-pink-600 px-1.5 py-0.5 rounded font-mono text-sm;
+}
+
+.ProseMirror pre {
+  @apply bg-slate-900 text-slate-100 p-4 rounded-lg my-4 font-mono text-sm overflow-x-auto;
+}
+
+.ProseMirror hr {
+  @apply my-6 border-slate-200;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #94a3b8;
+  pointer-events: none;
+  height: 0;
+}
