@@ -3,6 +3,7 @@
 ### Candidate Information
 
 - **Candidate Name**: Ayush Aggarwal
+- **Email**: aayushaggarwal348@gmail.com
 - **Position**: AI-Native Full Stack Developer Assignment
 - **Project Name**: Ajaia Docs — Collaborative Document Editor
 
@@ -10,24 +11,29 @@
 
 ## 🔗 Submission Links
 
-- **Live Application URL**: `[Live Application URL Placeholder]`
-- **Source Code Repository**: `[GitHub Repository Link Placeholder]`
-- **Video Walkthrough (Loom/Demo)**: `[Video Walkthrough Link Placeholder]`
+| | Link |
+|---|---|
+| **Live Frontend (Vercel)** | https://frontend-delta-cyan-95.vercel.app/login |
+| **Live Backend (API)** | https://collaborative-docs-editor-omega.vercel.app/ |
+| **Source Code (GitHub)** | https://github.com/Ayushaggarwal05/Collaborative_DOCS_Editor |
+| **Video Walkthrough** | `[PASTE LOOM / YOUTUBE URL HERE]` |
+
+> **Note on deployment**: Both Frontend and Backend are deployed live on Vercel. For local execution, setup instructions and defaults are documented in `README.md`.
 
 ---
 
-## 🔑 Demo Credentials
+## ?? Demo Credentials
 
-| User      | Email               | Role                   |
-| --------- | ------------------- | ---------------------- |
+| User | Email | Role |
+|---|---|---|
 | **Ayush** | `ayush@example.com` | Primary Owner / Writer |
 | **Rahul** | `rahul@example.com` | Secondary Collaborator |
 
-_No passwords required — click any user card on the Login page to authenticate._
+_No passwords required — click any user card on the Login page to authenticate instantly._
 
 ---
 
-## ✅ Implemented Features
+## ? Implemented Features
 
 ### 1. Authentication & Users
 
@@ -56,49 +62,55 @@ _No passwords required — click any user card on the Login page to authenticate
 - Owner-only sharing endpoint (`POST /documents/{id}/share`).
 - Owner-only share revoking endpoint (`DELETE /documents/{id}/share/{user_id}`).
 - Granular permission levels: **Editor** (can view and edit) and **Viewer** (read-only).
-- Comprehensive validation: prevents self-sharing, rejects non-existent target users, and blocks duplicate shares.
-- Non-shared users receive `403 Forbidden` with dedicated access denied UI.
+- Comprehensive validation: prevents self-sharing, rejects non-existent target users, blocks duplicate shares.
+- Non-shared users receive `403 Forbidden` with a dedicated access denied UI.
 
 ### 5. File Import
 
 - Import `.txt` and `.md` files via `POST /documents/import`.
 - Automatic transformation of Markdown headings and paragraphs into structured Tiptap JSON.
-- Derives document title from the uploaded filename stem.
-- Rejects unsupported formats (`.pdf`, `.docx`, etc.) with `400 Bad Request`.
+- Document title derived automatically from the uploaded filename stem.
+- Rejects unsupported formats (`.pdf`, `.docx`, etc.) with `400 Bad Request` and a clear UI error.
 
 ### 6. Automated Testing & Reliability
 
-- 30 automated backend tests in `pytest` utilizing an isolated in-memory SQLite database.
-- Full TypeScript compilation and production bundle validation (`npm run build`).
+- **30 automated backend tests** in `pytest` using an isolated in-memory SQLite database.
+- Tests cover: document CRUD, full permission matrix (owner/editor/viewer/unauthorized), sharing validations, file import parsing, and health/auth routes.
+- Full TypeScript compilation validated via `npm run build`.
 
 ---
 
-## ⚠️ Known Limitations
+## ?? Known Limitations & Intentional Tradeoffs
 
-1. **Concurrent Real-Time Collaboration**: Collaborative editing uses debounced synchronization rather than WebSocket-based operational transformation (OT) or CRDTs.
-2. **Simplified Auth**: Uses a header-based session demo auth model rather than production OAuth/JWT.
-3. **No Soft Deletes**: Deleting a document permanently removes the record and associated share entries via database cascading.
-4. **No Version History or Comments**: Version diffing and inline comment threads were deprioritized to focus on core editor functionality and test reliability.
-
----
-
-## ⏱️ What Would Be Built With Another 2–4 Hours
-
-1. **Document Export**: Add client-side or server-side export options to download documents as `.md`, `.txt`, `.html`, or `.pdf`.
-2. **Real-Time Collaboration with Yjs & WebSockets**: Integrate `@tiptap/extension-collaboration` with a lightweight WebSocket backend to support multi-user live cursors.
-3. **Document Duplication & Templates**: Add a "Duplicate Document" action and pre-built starter templates (e.g., Meeting Notes, Project Proposal).
-4. **Trash / Soft Delete Recovery**: Add a 30-day trash bin with document restoration capability before permanent deletion.
-5. **Full-Text Document Search**: Implement SQLite FTS5 (Full-Text Search) to enable searching document content in addition to titles.
+| Limitation | Reason |
+|---|---|
+| No real-time multi-cursor collaboration | Would require WebSockets + Yjs/CRDT — deprioritized in favor of solid core flow |
+| Simplified demo auth (no JWT/OAuth) | Keeps reviewer setup frictionless; scope-appropriate for assignment |
+| No version history or comments | Deprioritized to maintain depth in editor, sharing, and test coverage |
+| No soft delete / trash bin | Permanent delete is simpler and reliable; recovery was not a core requirement |
+| No PDF/DOCX import | Binary format parsing is complex; `.txt` and `.md` cover the stated use case cleanly |
 
 ---
 
-## 📦 Included Deliverables
+## ?? What I Would Build With Another 2–4 Hours
 
-1. **Backend**: Complete FastAPI application in `backend/` with SQLAlchemy models, Pydantic schemas, modular services, demo auth, and seed scripts.
-2. **Frontend**: Complete React 18 + Vite + TypeScript application in `frontend/` with Tailwind CSS and Tiptap editor.
-3. **Test Suite**: 29 automated tests in `backend/tests/` covering models, CRUD, sharing, import, and edge cases.
-4. **Documentation**:
-   - [`README.md`](file:///k:/Work/Assignment%20for%20job/Ajaia/README.md): Project overview, setup guides, API reference, and running instructions.
-   - [`ARCHITECTURE.md`](file:///k:/Work/Assignment%20for%20job/Ajaia/ARCHITECTURE.md): System architecture, database schema, permission matrix, and design tradeoffs.
-   - [`AI-WORKFLOW.md`](file:///k:/Work/Assignment%20for%20job/Ajaia/AI-WORKFLOW.md): Transparent AI tool usage, modifications, code review, and developer-led decisions.
-   - [`SUBMISSION.md`](file:///k:/Work/Assignment%20for%20job/Ajaia/SUBMISSION.md): Candidate submission details, credentials, and feature checklist.
+1. **Real-Time Collaboration** — Integrate `@tiptap/extension-collaboration` with Yjs + WebSocket server for live cursors and conflict-free editing.
+2. **Document Export** — Client-side export to `.md`, `.txt`, or `.pdf` using `jsPDF` or a server-side renderer.
+3. **Full-Text Search** — SQLite FTS5 to search document body content, not just titles.
+4. **Document Version History** — Snapshot content on each save with a diff viewer.
+5. **Trash / Soft Delete** — 30-day bin with one-click document restoration.
+
+---
+
+## ?? What Is Included
+
+| File / Folder | Description |
+|---|---|
+| `backend/` | FastAPI app — models, schemas, services, routers, seed script |
+| `backend/tests/` | 30 pytest tests with in-memory SQLite fixture |
+| `backend/requirements.txt` | Python dependencies |
+| `frontend/` | React 18 + Vite + TypeScript + Tailwind + Tiptap |
+| `README.md` | Full local setup, API reference, and run instructions |
+| `ARCHITECTURE.md` | System design, DB schema, permission matrix, and tradeoffs |
+| `AI-WORKFLOW.md` | AI tools used, what was changed/rejected, verification approach |
+| `SUBMISSION.md` | This file — candidate info, credentials, and feature checklist |
