@@ -11,12 +11,12 @@
 
 ## 🔗 Submission Links
 
-| | Link |
-|---|---|
-| **Live Frontend (Vercel)** | https://frontend-delta-cyan-95.vercel.app/login |
-| **Live Backend (API)** | https://collaborative-docs-editor-omega.vercel.app/ |
-| **Source Code (GitHub)** | https://github.com/Ayushaggarwal05/Collaborative_DOCS_Editor |
-| **Video Walkthrough** | `[PASTE LOOM / YOUTUBE URL HERE]` |
+|                            | Link                                                                               |
+| -------------------------- | ---------------------------------------------------------------------------------- |
+| **Live Frontend (Vercel)** | https://frontend-delta-cyan-95.vercel.app/login                                    |
+| **Live Backend (API)**     | https://collaborative-docs-editor-omega.vercel.app/                                |
+| **Source Code (GitHub)**   | https://github.com/Ayushaggarwal05/Collaborative_DOCS_Editor                       |
+| **Video Walkthrough**      | https://drive.google.com/file/d/1psmuCuIHz9VWaa7hN9Mfxbh1jIivYkjL/view?usp=sharing |
 
 > **Note on deployment**: Both Frontend and Backend are deployed live on Vercel. For local execution, setup instructions and defaults are documented in `README.md`.
 
@@ -24,8 +24,8 @@
 
 ## ?? Demo Credentials
 
-| User | Email | Role |
-|---|---|---|
+| User      | Email               | Role                   |
+| --------- | ------------------- | ---------------------- |
 | **Ayush** | `ayush@example.com` | Primary Owner / Writer |
 | **Rahul** | `rahul@example.com` | Secondary Collaborator |
 
@@ -82,13 +82,13 @@ _No passwords required — click any user card on the Login page to authenticate
 
 ## ?? Known Limitations & Intentional Tradeoffs
 
-| Limitation | Reason |
-|---|---|
-| No real-time multi-cursor collaboration | Would require WebSockets + Yjs/CRDT — deprioritized in favor of solid core flow |
-| Simplified demo auth (no JWT/OAuth) | Keeps reviewer setup frictionless; scope-appropriate for assignment |
-| No version history or comments | Deprioritized to maintain depth in editor, sharing, and test coverage |
-| No soft delete / trash bin | Permanent delete is simpler and reliable; recovery was not a core requirement |
-| No PDF/DOCX import | Binary format parsing is complex; `.txt` and `.md` cover the stated use case cleanly |
+| Limitation                              | Reason                                                                               |
+| --------------------------------------- | ------------------------------------------------------------------------------------ |
+| No real-time multi-cursor collaboration | Would require WebSockets + Yjs/CRDT — deprioritized in favor of solid core flow      |
+| Simplified demo auth (no JWT/OAuth)     | Keeps reviewer setup frictionless; scope-appropriate for assignment                  |
+| No version history or comments          | Deprioritized to maintain depth in editor, sharing, and test coverage                |
+| No soft delete / trash bin              | Permanent delete is simpler and reliable; recovery was not a core requirement        |
+| No PDF/DOCX import                      | Binary format parsing is complex; `.txt` and `.md` cover the stated use case cleanly |
 
 ---
 
@@ -104,13 +104,13 @@ _No passwords required — click any user card on the Login page to authenticate
 
 ## ?? What Is Included
 
-| File / Folder | Description |
-|---|---|
-| `backend/` | FastAPI app — models, schemas, services, routers, seed script |
-| `backend/tests/` | 30 pytest tests with in-memory SQLite fixture |
-| `backend/requirements.txt` | Python dependencies |
-| `frontend/` | React 18 + Vite + TypeScript + Tailwind + Tiptap |
-| `README.md` | Full local setup, API reference, and run instructions |
-| `ARCHITECTURE.md` | System design, DB schema, permission matrix, and tradeoffs |
-| `AI-WORKFLOW.md` | AI tools used, what was changed/rejected, verification approach |
-| `SUBMISSION.md` | This file — candidate info, credentials, and feature checklist |
+| File / Folder              | Description                                                     |
+| -------------------------- | --------------------------------------------------------------- |
+| `backend/`                 | FastAPI app — models, schemas, services, routers, seed script   |
+| `backend/tests/`           | 30 pytest tests with in-memory SQLite fixture                   |
+| `backend/requirements.txt` | Python dependencies                                             |
+| `frontend/`                | React 18 + Vite + TypeScript + Tailwind + Tiptap                |
+| `README.md`                | Full local setup, API reference, and run instructions           |
+| `ARCHITECTURE.md`          | System design, DB schema, permission matrix, and tradeoffs      |
+| `AI-WORKFLOW.md`           | AI tools used, what was changed/rejected, verification approach |
+| `SUBMISSION.md`            | This file — candidate info, credentials, and feature checklist  |
